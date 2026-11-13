@@ -1,0 +1,14 @@
+[
+  { "id": "R-01", "zone": "Library", "status": "Online", "battery": 92,
+    "temperature": 32, "sonar": 120, "speed": 1.2, "distance": 2.4 },
+  { "id": "R-02", "zone": "Admin Block", "status": "Online", "battery": 78,
+    "temperature": 35, "sonar": 95, "speed": 0.9, "distance": 1.8 },
+  { "id": "R-03", "zone": "R&D Block", "status": "Online", "battery": 65,
+    "temperature": 38, "sonar": 140, "speed": 1.5, "distance": 3.1 },
+  { "id": "R-04", "zone": "Hostel Gate", "status": "Online", "battery": 84,
+    "temperature": 33, "sonar": 110, "speed": 1.1, "distance": 2.0 },
+  { "id": "R-05", "zone": "Food Court", "status": "Online", "battery": 48,
+    "temperature": 41, "sonar": 75, "speed": 0.7, "distance": 1.5 },
+  { "id": "R-06", "zone": "Sports Arena", "status": "Online", "battery": 89,
+    "temperature": 31, "sonar": 160, "speed": 1.3, "distance": 2.8 }
+]

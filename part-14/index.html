@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Defines character encoding and mobile responsiveness -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Browser tab title -->
+    <title>NETRA Robot Monitoring System</title>
+
+    <!-- Connects the external CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ================= HEADER SECTION ================= -->
+    <!-- Contains project logo, navigation, system status and mission button -->
+    <header class="topbar">
+
+        <!-- Project branding -->
+        <div class="brand">
+            <div class="brand-logo">N</div>
+            <div>
+                <h1>NETRA</h1>
+                <p>ROBOT MISSION CONTROL</p>
+            </div>
+        </div>
+
+        <!-- Navigation links to different dashboard sections -->
+        <nav>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#fleet">Fleet</a>
+            <a href="#telemetry">Telemetry</a>
+            <a href="#alerts">Alerts</a>
+        </nav>
+
+        <!-- Displays system status and live clock -->
+        <div class="header-right">
+            <span class="online-dot"></span>
+            <span>SYSTEM ONLINE</span>
+            <strong id="clock">--:--:--</strong>
+        </div>
+
+        <!-- Opens the mission dispatch popup -->
+        <button id="dispatch-open" type="button">+ Dispatch Mission</button>
+
+    </header>
+
+    <!-- ================= MAIN DASHBOARD ================= -->
+    <main class="page">
+
+        <!-- ================= KPI CARDS ================= -->
+        <!-- Displays important fleet statistics -->
+        <section class="kpi-grid">
+
+            <article class="kpi-card">
+                <span>ROVERS ONLINE</span>
+                <h2 id="online-count">6 / 6</h2>
+                <p>Active rover units</p>
+            </article>
+
+            <article class="kpi-card">
+                <span>AVERAGE BATTERY</span>
+                <h2 id="average-battery">76%</h2>
+                <p>Fleet battery level</p>
+            </article>
+
+            <article class="kpi-card">
+                <span>OPEN ALERTS</span>
+                <h2 id="alert-count">0</h2>
+                <p>Requires attention</p>
+            </article>
+
+            <article class="kpi-card">
+                <span>DISTANCE TODAY</span>
+                <h2 id="distance">13.6 km</h2>
+                <p>Total simulated distance</p>
+            </article>
+
+        </section>
+
+        <!-- ================= DASHBOARD HEADING ================= -->
+        <section id="dashboard" class="section-heading">
+            <div>
+                <h2>Fleet Overview</h2>
+                <p>Monitor all campus rover activities.</p>
+            </div>
+            <span class="live-tag">● LIVE MONITORING</span>
+        </section>
+
+        <!-- ================= FLEET MANAGEMENT ================= -->
+        <!-- Displays all rovers in a dynamic table -->
+        <section class="panel" id="fleet">
+            <div class="panel-title">
+                <div>
+                    <h2>Fleet Management</h2>
+                    <p>Campus rover information</p>
+                </div>
+
+                <!-- Allows searching rovers by ID or zone -->
+                <input type="search" id="rover-search"
+                       placeholder="Search rover or zone...">
+            </div>
+
+            <!-- Scrollable rover information table -->
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rover ID</th>
+                            <th>Zone</th>
+                            <th>Status</th>
+                            <th>Battery</th>
+                            <th>Temperature</th>
+                            <th>Sonar Distance</th>
+                            <th>Speed</th>
+                        </tr>
+                    </thead>
+
+                    <!-- JavaScript dynamically inserts rover records here -->
+                    <tbody id="fleet-body"></tbody>
+                </table>
+            </div>
+
+            <p class="table-note">
+                Select a rover row to view its sensor readings and telemetry history.
+            </p>
+        </section>
+
+        <!-- ================= TELEMETRY AND ZONES ================= -->
+        <section class="dashboard-grid">
+            <!-- ================= ROVER TELEMETRY ================= -->
+            <article class="panel" id="telemetry">
+                <div class="panel-title">
+                    <div>
+                        <h2>Rover Telemetry</h2>
+                        <p>Live sensor readings</p>
+                    </div>
+                    <span class="live-tag">● LIVE</span>
+                </div>
+
+                <!-- Displays the currently selected rover -->
+                <div class="metric-heading">
+                    <h3>Selected Rover</h3>
+                    <span id="selected-rover-label">R-01</span>
+                </div>
+
+                <!-- Displays current sensor values -->
+                <div class="sensor-grid">
+                    <div class="sensor-card">
+                        <span>Battery</span>
+                        <strong id="battery-value">92%</strong>
+                    </div>
+                    <div class="sensor-card">
+                        <span>Temperature</span>
+                        <strong id="temperature-value">32°C</strong>
+                    </div>
+                    <div class="sensor-card">
+                        <span>Sonar Distance</span>
+                        <strong id="sonar-value">120 cm</strong>
+                    </div>
+                    <div class="sensor-card">
+                        <span>Speed</span>
+                        <strong id="speed-value">1.2 m/s</strong>
+                    </div>
+                </div>
+
+                <!-- Selects the sensor metric to display in the chart -->
+                <div class="metric-heading">
+                    <h3>Telemetry History</h3>
+                    <select id="metric-select">
+                        <option value="battery">Battery</option>
+                        <option value="temperature">Temperature</option>
+                        <option value="sonar">Sonar Distance</option>
+                        <option value="speed">Speed</option>
+                    </select>
+                </div>
+
+                <!-- Canvas used by JavaScript to draw the telemetry chart -->
+                <canvas id="telemetry-chart"></canvas>
+
+                <div class="metric-note">
+                    Sensor values are simulated and update automatically.
+                </div>
+            </article>
+
+            <!-- ================= CAMPUS ZONES ================= -->
+            <!-- Displays all rover operating locations -->
+            <article class="panel" id="zones">
+                <div class="panel-title">
+                    <div>
+                        <h2>Campus Zones</h2>
+                        <p>Rover operating locations</p>
+                    </div>
+                </div>
+
+                <div class="zone-grid">
+                    <div class="zone-card">📚 Library</div>
+                    <div class="zone-card">🏢 Admin Block</div>
+                    <div class="zone-card">🔬 R&amp;D Block</div>
+                    <div class="zone-card">🚪 Hostel Gate</div>
+                    <div class="zone-card">🍽 Food Court</div>
+                    <div class="zone-card">🏟 Sports Arena</div>
+                </div>
+            </article>
+        </section>
+
+        <!-- ================= SYSTEM ALERTS ================= -->
+        <!-- Displays battery, temperature and obstacle warnings -->
+        <section class="panel" id="alerts">
+            <div class="panel-title">
+                <div>
+                    <h2>System Alerts</h2>
+                    <p>Rover warnings and notifications</p>
+                </div>
+            </div>
+
+            <!-- JavaScript dynamically inserts alert messages here -->
+            <div id="alert-list">
+                <p class="empty-message">Loading system alerts...</p>
+            </div>
+        </section>
+
+        <!-- more sections are added here in later parts -->
+
+    </main>
+
+    <!-- ================= MISSION DISPATCH MODAL ================= -->
+    <!-- Popup used to assign a mission to a selected rover -->
+    <div id="dispatch-modal" class="modal">
+        <div class="modal-box">
+
+            <div class="panel-title">
+                <h2>Dispatch New Mission</h2>
+
+                <!-- Closes the popup -->
+                <button id="dispatch-close" class="close-btn"
+                        type="button">×</button>
+            </div>
+
+            <!-- Rover selection -->
+            <label for="dispatch-rover">Select Rover</label>
+            <select id="dispatch-rover"></select>
+
+            <!-- Destination selection -->
+            <label for="destination">Destination</label>
+            <select id="destination">
+                <option value="">Choose destination</option>
+                <option>Library</option>
+                <option>Admin Block</option>
+                <option>R&amp;D Block</option>
+                <option>Hostel Gate</option>
+                <option>Food Court</option>
+                <option>Sports Arena</option>
+            </select>
+
+            <!-- Mission description -->
+            <label for="mission-description">Mission Description</label>
+            <input id="mission-description" type="text"
+                   placeholder="Example: Deliver a package">
+
+            <!-- Displays validation and mission confirmation messages -->
+            <p id="mission-message"></p>
+
+            <!-- Submits the mission -->
+            <button id="mission-submit" type="button">Confirm Mission</button>
+
+        </div>
+    </div>
+
+    <!-- Connects the external JavaScript file (kept at the end of the body) -->
+    <script src="script.js"></script>
+</body>
+</html>

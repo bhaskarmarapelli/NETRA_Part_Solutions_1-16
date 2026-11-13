@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Defines character encoding and mobile responsiveness -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Browser tab title -->
+    <title>NETRA Robot Monitoring System</title>
+
+    <!-- Connects the external CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ================= HEADER SECTION ================= -->
+    <!-- Contains project logo, navigation, system status and mission button -->
+    <header class="topbar">
+
+        <!-- Project branding -->
+        <div class="brand">
+            <div class="brand-logo">N</div>
+            <div>
+                <h1>NETRA</h1>
+                <p>ROBOT MISSION CONTROL</p>
+            </div>
+        </div>
+
+        <!-- Navigation links to different dashboard sections -->
+        <nav>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#fleet">Fleet</a>
+            <a href="#telemetry">Telemetry</a>
+            <a href="#alerts">Alerts</a>
+        </nav>
+
+        <!-- Displays system status and live clock -->
+        <div class="header-right">
+            <span class="online-dot"></span>
+            <span>SYSTEM ONLINE</span>
+            <strong id="clock">--:--:--</strong>
+        </div>
+
+        <!-- Opens the mission dispatch popup -->
+        <button id="dispatch-open" type="button">+ Dispatch Mission</button>
+
+    </header>
+
+    <!-- Connects the external JavaScript file (kept at the end of the body) -->
+    <script src="script.js"></script>
+</body>
+</html>

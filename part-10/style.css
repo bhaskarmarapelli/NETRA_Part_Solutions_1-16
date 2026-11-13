@@ -1,0 +1,425 @@
+/* ================= GLOBAL RESET ================= */
+/* Removes default browser spacing and uses border-box sizing */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Enables smooth scrolling when navigation links are clicked */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Main page styling */
+body {
+    background: #08111f;
+    color: #edf4ff;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+}
+
+/* Applies the same font to form controls */
+button, input, select {
+    font-family: inherit;
+}
+
+/* ================= BUTTON STYLING ================= */
+button {
+    background: #287ee8;
+    border: 0;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Changes button colour when the mouse moves over it */
+button:hover {
+    background: #1765c3;
+}
+
+/* ================= HEADER SECTION ================= */
+/* Creates the top navigation bar */
+.topbar {
+    min-height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 15px 4%;
+    background: #111f34;
+    border-bottom: 1px solid #2a3d59;
+}
+
+/* Arranges the logo and project name horizontally */
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* NETRA logo styling */
+.brand-logo {
+    background: #287ee8;
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+/* Project title and subtitle */
+.brand h1 {
+    color: #54a5ff;
+    letter-spacing: 3px;
+}
+
+.brand p {
+    font-size: 9px;
+    color: #91a8c5;
+}
+
+/* Navigation menu layout */
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+/* Navigation link styling */
+nav a {
+    color: #aebed3;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+/* Navigation hover effect */
+nav a:hover {
+    color: #54a5ff;
+}
+
+/* System status and clock layout */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #39d6a0;
+    font-size: 11px;
+}
+
+/* Green circle indicating online status */
+.online-dot {
+    width: 9px;
+    height: 9px;
+    background: #39d6a0;
+    border-radius: 50%;
+}
+
+/* Digital clock styling */
+#clock {
+    color: white;
+    margin-left: 10px;
+    font-family: monospace;
+}
+
+/* ================= MAIN PAGE ================= */
+/* Controls the spacing around the dashboard content */
+.page {
+    padding: 35px 5%;
+}
+
+/* Common paragraph colour inside the main page */
+.page p {
+    color: #91a8c5;
+}
+
+/* ================= KPI CARDS ================= */
+/* Creates four columns for important dashboard statistics */
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+/* Common card and panel background */
+.kpi-card, .panel {
+    background: #14243a;
+    border: 1px solid #2a4262;
+    border-radius: 12px;
+}
+
+/* KPI card spacing and animation */
+.kpi-card {
+    padding: 22px;
+    transition: 0.2s;
+}
+
+/* Card hover animation */
+.kpi-card:hover {
+    border-color: #438cff;
+    transform: translateY(-3px);
+}
+
+/* KPI card heading labels */
+.kpi-card span {
+    color: #91a8c5;
+    font-size: 10px;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+/* KPI numerical values */
+.kpi-card h2 {
+    color: #54a5ff;
+    font-size: 29px;
+    margin: 14px 0 8px;
+}
+
+/* KPI descriptions */
+.kpi-card p {
+    color: #91a8c5;
+    font-size: 12px;
+}
+
+/* ================= SECTION HEADING ================= */
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Section title */
+.section-heading h2 {
+    font-size: 26px;
+    margin-bottom: 8px;
+}
+
+/* Section description */
+.section-heading p {
+    color: #91a8c5;
+}
+
+/* Live monitoring indicator */
+.live-tag {
+    color: #39d6a0;
+    background: #12382f;
+    padding: 9px 13px;
+    border-radius: 20px;
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+/* ================= COMMON PANEL STYLING ================= */
+/* Used by fleet, telemetry, zones and alerts sections */
+.panel {
+    padding: 22px;
+    margin-bottom: 20px;
+    min-width: 0;
+}
+
+/* Panel heading arrangement */
+.panel-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+/* Panel titles */
+.panel-title h2, .panel h2 {
+    font-size: 17px;
+    margin-bottom: 7px;
+}
+
+/* Panel descriptions */
+.panel-title p {
+    color: #91a8c5;
+    font-size: 12px;
+}
+
+/* ================= SEARCH AND TABLE ================= */
+/* Search input and telemetry dropdown */
+#rover-search, .metric-heading select {
+    background: #0b1627;
+    border: 1px solid #2a4262;
+    color: white;
+    padding: 10px;
+    border-radius: 7px;
+}
+
+/* Allows the table to scroll horizontally on smaller screens */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+/* Rover table layout */
+table {
+    width: 100%;
+    min-width: 850px;
+    border-collapse: collapse;
+}
+
+/* Table cell spacing and borders */
+th, td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #2a4262;
+    text-align: left;
+    font-size: 12px;
+}
+
+/* Table column headings */
+th {
+    color: #91a8c5;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+/* Table data */
+td {
+    color: #dce8f8;
+}
+
+/* Makes rover rows clickable */
+tbody tr {
+    cursor: pointer;
+}
+
+/* Highlights a row when hovered */
+tbody tr:hover {
+    background: #1b304b;
+}
+
+/* Highlights the currently selected rover */
+tbody tr.selected-row {
+    background: #254568;
+    outline: 1px solid #438cff;
+}
+
+/* Shows rover status in green */
+tbody td:nth-child(3) {
+    color: #39d6a0;
+    font-weight: bold;
+}
+
+/* Information displayed below the table and chart */
+.table-note, .metric-note {
+    color: #91a8c5;
+    font-size: 12px;
+    margin-top: 12px;
+}
+
+/* ================= DASHBOARD GRID ================= */
+/* Places telemetry and campus zones side by side */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 18px;
+}
+
+/* ================= TELEMETRY SECTION ================= */
+/* Arranges metric headings and dropdown controls */
+.metric-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0 12px;
+}
+
+/* Metric heading text */
+.metric-heading h3 {
+    font-size: 14px;
+}
+
+/* Selected rover label */
+.metric-heading span {
+    color: #39d6a0;
+    font-size: 12px;
+}
+
+/* Creates two columns for sensor readings */
+.sensor-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+/* Individual sensor cards */
+.sensor-card {
+    background: #1b304b;
+    border: 1px solid #2c4564;
+    border-radius: 10px;
+    padding: 18px;
+}
+
+/* Sensor names */
+.sensor-card span {
+    display: block;
+    color: #91a8c5;
+    font-size: 12px;
+    margin-bottom: 12px;
+}
+
+/* Sensor numerical values */
+.sensor-card strong {
+    color: #54a5ff;
+    font-size: 23px;
+}
+
+/* Canvas area used to draw the telemetry graph */
+#telemetry-chart {
+    width: 100%;
+    height: 260px;
+    display: block;
+    background: #101c2d;
+    border-radius: 8px;
+}
+
+/* ================= CAMPUS ZONES ================= */
+/* Creates two columns for campus locations */
+.zone-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 13px;
+}
+
+/* Individual campus zone cards */
+.zone-card {
+    padding: 22px 12px;
+    text-align: center;
+    background: #1b304b;
+    border: 1px solid #2a4262;
+    border-radius: 10px;
+    color: #dce8f8;
+    font-size: 13px;
+}
+
+/* ================= SYSTEM ALERTS ================= */
+/* Default alert message styling */
+.alert {
+    background: #192d35;
+    border-left: 4px solid #39d6a0;
+    border-radius: 7px;
+    padding: 15px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    color: #a8f3d8;
+}
+
+/* Warning alert styling for critical conditions */
+.alert.warning {
+    background: rgba(255, 166, 0, 0.13);
+    border-left-color: #ffc65c;
+    color: #ffe0a0;
+    font-weight: 600;
+}
+
+/* Message displayed when no alerts exist */
+.empty-message {
+    color: #91a8c5;
+    font-size: 13px;
+}
